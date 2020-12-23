@@ -6,7 +6,7 @@ const main = (path) => {
         fs.readFile(path, function(error, data) {
             if (error && error.code === 'ENOENT') {
                 reject({ message: "File Does Not Exist" })
-            } else {
+            } else if (error) {
                 reject({ message: "Path is a directory" })
             }
             try {
